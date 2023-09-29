@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Even the dashboard for AWS (Amazon Web Services) can be daunting, let alone the documentation! Here, I decided to create a resource for juniors such as myself to help make life a little easier when making requests to a DynamoDB table. Note, we will be using IAM roles to embed AWS keys directly into your app environment (not in your .env files, which carries the slight risk of compromising your key). This tutorial will show you how to, in chronological order:
+Even the dashboard for AWS (Amazon Web Services) can be daunting, let alone the documentation! Here, I decided to create a resource for juniors such as myself to help make life a little easier when making requests to a DynamoDB table. Note that we will be using IAM roles to grant your AWS resources the necessary permissions to access other AWS services securely. This approach eliminates the need to store AWS access keys directly in your application environment, reducing the risk of compromising your keys. This tutorial will show you how to, in chronological order:
 
 ```markdown
 1) Set up a DynamoDB table.
