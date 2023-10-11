@@ -2,19 +2,25 @@
 
 ## Introduction
 
-Even the dashboard for AWS (Amazon Web Services) can be daunting, let alone the documentation! Here, I decided to create a resource for juniors such as myself to help make life a little easier when making requests to a DynamoDB table. Note that we will be using IAM roles to grant your AWS resources the necessary permissions to access other AWS services securely. This approach eliminates the need to store AWS access keys directly in your application environment (code or config files), reducing the risk of compromising your keys. In chronological order this tutorial will show you how to:
+Even the AWS (Amazon Web Services) home page can be daunting, let alone the documentation! Here, I decided to create a resource for juniors such as myself to help make life a little easier when making requests to a DynamoDB table. Note that we will be using IAM roles to grant your AWS resources the necessary permissions to access other AWS services securely. This approach eliminates the need to store AWS access keys directly in your application environment (code or config files), reducing the risk of compromising your keys. 
+<br>
+<br>
+In chronological order, this tutorial will show you how to:
 
 ```markdown
 1) Set up a DynamoDB table.
 2) Create Lambda CRUD functions (plus code snippets).
-3) Add relevant IAM roles, so that it does not carry out unintended actions (i.e., abuse). And a lot more.
-4) Set up API Gateway so that the Lambda functions can communicate with your DynamoDB table.
-5) Set up API Gateway settings such as 'Throttling' (limiting the rate requests can be made)
-6) Deploy the API to generate the Invoke URL needed for endpoints.
-7) Use Postman/Thunder Client to make requests to this Invoke URL...
-8) ...and thus, retrieve/add/update/delete data from/to your DynamoDB table.
-9) (Eventually) make your frontend carry out CRUD functions...
-10) ...and set up authorization via the likes of Firebase or OAuth.
+3) Add relevant IAM roles (DynamoDBFullAccess for testing purposes)
+4) Test populating the DynamoDB table via Lambda.
+5) Creating stricter IAM roles, to prevent unintended actions (i.e., abuse and more).
+6) Test this/these stricer IAM roles.
+7) Set up API Gateway so that the Lambda functions can communicate with your DynamoDB table.
+8) Set up API Gateway settings such as 'Throttling' (limiting the rate requests can be made)
+9) Deploy the API to generate the Invoke URL needed for endpoints.
+10) Use Postman/Thunder Client to make requests to this Invoke URL...
+11) ...and thus, retrieve/add/update/delete data from/to your DynamoDB table.
+12) (Eventually) make your frontend carry out CRUD functions...
+13) ...and set up authorization via the likes of Firebase or OAuth.
 
 ```
 <br>
@@ -167,4 +173,22 @@ under 'Task' (assuming you only clicked 'Test' in Lambda twice).
 ```
 With this, your Lambda code has successfully added a new entry to your DynamoDB table, but this time with a 'PutItem' only permission. You can now repeat the process, with a NEW Lambda function (one for each CRUD operation), with code similar to what was provided in Step 2.
 
+### Step 7 ... To be continued!
+API Gateway...
+
 ### Security and Cost Concerns
+```markdown
+Security:
+1) While this guide is still in it's infancy, I would not recommend using this guide to fulfil
+any commercial purposes.
+2) That being said, as time goes on, the extra layers of restrictions woven into this guide
+should lead to a fairly secure operation.
+3) I will make it obvious on this guide when it has reached a level where it could be used
+in a commercial/business setting.
+
+Cost Concerns:
+1) The AWS Free tier lasts a year. For a basic app created to learn the ropes of AWS,
+you should not occur any costs (assuming you stay within the free tier).
+2) Feel free to look into the Billings dashboard for more help. I believe there
+may be a way to create alerts for when you are approaching said limit.
+```
