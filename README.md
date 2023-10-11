@@ -38,28 +38,35 @@ Note: if you do not want to utilize Lambda functions and write your own code, ma
 ```
 ### Step 1 - Set up DynamoDB Table
 ```markdown
-1.1) Under the DynamoDB dashboard, head to 'Tables' on the left hand side. 
-1.2) Click the orange 'Create table'.
-1.3) Enter a name for the table and the Partition key. Make note of these two names - they will be needed for your Lambda Function later.
-1.4) You can leave everything under 'Default settings'. Everything can be changed later (except secondary indexes).
-1.5) Click the orange 'Create table' button at the bottom.
+- 1.1) Under the DynamoDB dashboard, head to 'Tables' on the left hand side. 
+- 1.2) Click the orange 'Create table'.
+- 1.3) Enter a name for the table and the Partition key. Make note of these two names - they will be needed for your
+Lambda Function later.
+- 1.4) You can leave everything under 'Default settings'. Everything can be changed later (except secondary indexes).
+- 1.5) Click the orange 'Create table' button at the bottom.
 ```
 ### Step 2 - Lambda CRUD Function
-((*Explanations and Code snippets to come*))
+```markdown
+- 2.1) Navigate to Lambda. Search for it in the search bar or find it under 'Services' (top left, next to the search bar).
+- 2.2) Select 'Author from scratch' and leave all the default options.
+- 2.3) Hit the orange 'Create function' button.
+- 2.4) Copy and paste the below code into the Code section. Check the comments for clues on how to make it fit your table.
+```
 <br>
 Example Lambda function (Create new item in DynamoDB table):
+
 ```javascript
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 
-const dynamoDbClient = new DynamoDBClient({ region: "YOUR_REGION" });
+const dynamoDbClient = new DynamoDBClient({ region: "YOUR_REGION" }); // e.g., "eu-west-1"
 
 export const handler = async (event) => {
-  const entry = event.entry
+  const task = event.task; // Imagine this app is for a To-do list, with tasks
 
   const params = {
     TableName: "DYNAMODB_TABLE_NAME",
     Item: {
-      TableEntryId: { S: `${Date.now()}` },
+      TableEntryId: { S: `${Date.now()}` }, // TableEntryId = the PARTITION KEY
       TableEntry: { S: entry },
     },
   };
@@ -73,10 +80,24 @@ export const handler = async (event) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Table entry insertion failed" }),
+      body: JSON.stringify({ message: "Table entry insertion failed", error }), // Notice the use of error
     };
   }
 };
 ```
+
+```markdown
+- 2.5) Locate the blue 'Test' button and click the dropdown. Select 'Configure test event'.
+- 2.6) Under 'Configure test event', select 'Create new event' and name the event (e.g., testEvent1).
+- 2.7) Here is example code for the event JSON - this is what will be delivered to the DynamoDB table:
+```
+
+```javascript
+{
+  "task": "SUCCESS"
+}
+
+```
+
 
 ### Security and Cost Concerns
