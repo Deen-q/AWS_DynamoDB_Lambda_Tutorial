@@ -188,7 +188,9 @@ in a commercial/business setting.
 
 Cost Concerns:
 1) The AWS Free tier lasts a year. For a basic app created to learn the ropes of AWS,
-you should not occur any costs (assuming you stay within the free tier).
+you should not incur any costs (assuming you stay within the free tier).
 2) Feel free to look into the Billings dashboard for more help. I believe there
 may be a way to create alerts for when you are approaching said limit.
+3) Use this guide at your own risk; I am *not* responsible for any costs or damages, nor
+am I a AWS representative. I have not incurred any costs as of yet and am very unlikely to.
 ```
