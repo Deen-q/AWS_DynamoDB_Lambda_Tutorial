@@ -40,10 +40,10 @@ Note: if you do not want to utilize Lambda functions and write your own code, ma
 ```markdown
 - 1.0) Under the DynamoDB dashboard, head to 'Tables' on the left hand side. 
 - 1.1) Click the orange 'Create table'.
-- 1.2) Enter a name for the table and the Partition key. Make note of these two names - they will be needed
-for your Lambda Function later.
-- 1.3) You can leave everything under 'Default settings'. Everything can be changed later (except secondary
-indexes).
+- 1.2) Enter a name for the table and the Partition key. Make note of these two names - they will be
+needed for your Lambda Function later.
+- 1.3) You can leave everything under 'Default settings'. Everything can be changed later (except
+secondary indexes).
 - 1.4) Click the orange 'Create table' button at the bottom.
 ```
 ### Step 2 - Lambda CRUD Function
@@ -114,11 +114,12 @@ side (still under 'Configuration').
 - 3.1) This will take you to 'Execution role'. Under 'Role name', click the only link below (should be the
 name of the Lambda function, followed by '-role-*random characters*').
 - 3.2) You'll have been taken to the 'Roles' section (IAM -> Roles). Under 'Permissions policies', you will
-see one policy that has been attached for you. Click the 'Add permissions' dropdown and click 'Attach policies'.
+see one policy that has been attached for you. Click the 'Add permissions' dropdown and click
+'Attach policies'.
 - 3.3) Search for 'AmazonDynamoDBFullAccess'. We will use this *temporarily* to establish a connection.
 Click 'Add permissions'.
-- 3.4) Under 'Permissions policies', you should now have two - the full access policy (Type: 'Customer managed')
-and the one automatically assigned (Type: AWS managed).
+- 3.4) Under 'Permissions policies', you should now have two - the full access policy (Type: 'Customer
+managed') and the one automatically assigned (Type: AWS managed).
 ```
 
 ### Step 4 - Populating the DynamoDB table via Lambda
