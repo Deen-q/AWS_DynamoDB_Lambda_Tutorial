@@ -37,12 +37,18 @@ Note: if you do not want to utilize Lambda functions and write your own code, ma
 
 ```
 ### Step 1 - Set up DynamoDB Table
-*to be populated (text and gifs)*
+```markdown
+1.1) Under the DynamoDB dashboard, head to 'Tables' on the left hand side. 
+1.2) Click the orange 'Create table'.
+1.3) Enter a name for the table and the Partition key. Make note of these two names - they will be needed for your Lambda Function later.
+1.4) You can leave everything under 'Default settings'. Everything can be changed later (except secondary indexes).
+1.5) Click the orange 'Create table' button at the bottom.
+```
 ### Step 2 - Lambda CRUD Function
 ((*Explanations and Code snippets to come*))
 <br>
 Example Lambda function (Create new item in DynamoDB table):
-```markdown
+```javascript
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 
 const dynamoDbClient = new DynamoDBClient({ region: "YOUR_REGION" });
