@@ -109,12 +109,12 @@ export const handler = async (event) => {
 
 ### Step 3 - IAM Role
 ```markdown
-- 3.0) Go to the 'Configuration' section (three right from 'Code'). Now click 'Permissions' on the left-hand
-side (still under 'Configuration').
-- 3.1) This will take you to 'Execution role'. Under 'Role name', click the only link below (should be the
-name of the Lambda function, followed by '-role-*random characters*').
-- 3.2) You'll have been taken to the 'Roles' section (IAM -> Roles). Under 'Permissions policies', you will
-see one policy that has been attached for you. Click the 'Add permissions' dropdown and click
+- 3.0) Go to the 'Configuration' section (three right from 'Code'). Now click 'Permissions' on the
+left-hand side (still under 'Configuration').
+- 3.1) This will take you to 'Execution role'. Under 'Role name', click the only link below (should
+be the name of the Lambda function, followed by '-role-*random characters*').
+- 3.2) You'll have been taken to the 'Roles' section (IAM -> Roles). Under 'Permissions policies',
+you will see one policy that has been attached for you. Click the 'Add permissions' dropdown and click
 'Attach policies'.
 - 3.3) Search for 'AmazonDynamoDBFullAccess'. We will use this *temporarily* to establish a connection.
 Click 'Add permissions'.
@@ -125,11 +125,11 @@ managed') and the one automatically assigned (Type: AWS managed).
 ### Step 4 - Populating the DynamoDB table via Lambda
 ```markdown
 - 4.0) Go back to the Lambda dashboard and click 'Test' again.
-- 4.1) You should recieve the 200 code - a successful outcome. Navigate to the DynamoDB dashboard to see the
-new entry.
-- 4.2) DynamoDB -> Explore Items -> the name of your table. You should see a random number under the Partition
-key (String) - which is called whatever you named it earlier - and 'SUCCESS' under Task, assuming you used the
-JSON from Step 2.
+- 4.1) You should recieve the 200 code - a successful outcome. Navigate to the DynamoDB dashboard to see
+the new entry.
+- 4.2) DynamoDB -> Explore Items -> the name of your table. You should see a random number under the
+Partition key (String) - which is called whatever you named it earlier - and 'SUCCESS' under Task,
+assuming you used the JSON from Step 2.
 ```
 If you still get the 500 error, check what the error might be. Incorrectly spelling what you named the partition key, for example, would return an error mentioning "ValidationException" and "One or more parameter values were invalid: Missing the key PARTITION_KEY_NAME in the item".
 <br>
