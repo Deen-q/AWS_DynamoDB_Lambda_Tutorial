@@ -13,7 +13,7 @@ In chronological order, this tutorial will show you how to:
 3) Add relevant IAM roles (DynamoDBFullAccess for testing purposes)
 4) Test populating the DynamoDB table via Lambda.
 5) Creating stricter IAM roles, to prevent unintended actions (i.e., abuse and more).
-6) Test this/these stricer IAM roles.
+6) Test the stricter IAM roles (see if working as intended).
 7) Deploy the API to generate the Invoke URL needed for endpoints via API Gateway.
 8) Use Postman/Thunder Client to make requests to this Invoke URL.
 9) Make your frontend communicate with your DynamoDB table.
