@@ -14,13 +14,10 @@ In chronological order, this tutorial will show you how to:
 4) Test populating the DynamoDB table via Lambda.
 5) Creating stricter IAM roles, to prevent unintended actions (i.e., abuse and more).
 6) Test this/these stricer IAM roles.
-7) Set up API Gateway so that the Lambda functions can communicate with your DynamoDB table.
-8) Set up API Gateway settings such as 'Throttling' (limiting the rate requests can be made)
-9) Deploy the API to generate the Invoke URL needed for endpoints.
-10) Use Postman/Thunder Client to make requests to this Invoke URL...
-11) ...and thus, retrieve/add/update/delete data from/to your DynamoDB table.
-12) (Eventually) make your frontend carry out CRUD functions...
-13) ...and set up authorization via the likes of Firebase or OAuth.
+7) Deploy the API to generate the Invoke URL needed for endpoints via API Gateway.
+8) Use Postman/Thunder Client to make requests to this Invoke URL.
+9) Make your frontend communicate with your DynamoDB table.
+10) Set up authorisation via the likes of Firebase or OAuth.
 
 ```
 <br>
